@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 
+/* ------ BODY ORGANIZATION ------ */
+
 *{
    padding: 0;
 }
@@ -19,7 +21,7 @@ main{
     border-radius: 25px;
     width: 90%;
     height: 90%;
-    background-color: #386641;
+    background-color: #6a994e;
     color: white;
 }
 
@@ -29,14 +31,16 @@ main{
     display: flex;
     flex-direction: column;
     gap: 15px;
-    background-color: #6a994e;
+    background-color: #386641;
     border-radius: 25px 0 0 25px;
 }
+
+/* ------ SMART SECTION ------ */
 
 .smart_section{
     display: flex;
     flex-direction: column;
-    border-top: 2px solid #386641;
+    border-top: 2px solid #6a994e;
     gap: 8px;
     padding-top: 5px;
 }
@@ -80,9 +84,11 @@ main{
     color: rgb(38, 255, 0);
 }
 
+/* ------ PROJECT SECTION ------ */
+
 .projects_section{
     flex-grow: 1;
-    border-top: 2px solid #386641;
+    border-top: 2px solid #a7c957;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -110,3 +116,127 @@ main{
     color: rgb(38, 255, 0);
     
 }
+
+/* ------ MAIN SECTION ------ */
+
+.main_section{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+
+.todo_project_heading{
+    align-self: flex-start;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    width: 90%;
+    font-size: 20px;
+}
+
+.todo_project_heading > h1{
+    border-bottom: 2px solid #386641;
+}
+
+.todo_container{
+    color: black;
+    width: 90%;
+    display: flex;
+}
+
+/* ------ TODO STYLING ------ */
+
+.todo_container_item{
+    background-color: #f2e8cf;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    width: 100%;
+    border-radius: 15px;
+}
+
+.todo_container_item_main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo_container_item_heading{
+    display: flex;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.todo_container_item_buttons{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+/* ------ DATE ------ */
+
+.todo_date{
+    padding: 5px 10px;
+}
+.date{
+    letter-spacing: 0.05em;
+}
+
+/* ------ PRIORITY ------ */
+
+.todo_priority{
+    background-color: rgb(7, 244, 7);
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+
+/* ------ TODO BUTTONS ------ */
+
+.delete_btn{
+    border: 2px solid rgb(170, 3, 3);
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: transparent;
+    color: rgb(170, 3, 3);
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.delete_btn:hover{
+    background-color: rgb(170, 3, 3);
+    border: 2px solid transparent;
+    color: white;
+}
+
+.edit_btn{
+    background-color: transparent;
+    color: #0065cb;
+    border: 2px solid #0065cb;
+    padding: 5px 10px;
+    border-radius: 10px;
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.edit_btn:hover{
+    background-color: #0065cb;
+    border: 2px solid transparent;
+    color: white;
+}
+
+/* ------ DESCRIPTION ------ */
+
+.todo_container_item_description{
+    margin-top: 20px;
+    border-top: 2px solid #834124;
+    padding-top: 10px;
+}
+
+
+input[type="checkbox"]{
+    width: 25px;
+    height: 25px;
+    accent-color: green;
+    border: none;
+}
+

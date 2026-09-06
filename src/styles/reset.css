@@ -36,15 +36,24 @@ input, button, textarea, select {
 /* 8. Avoid text overflows */
 p, h1, h2, h3, h4, h5, h6 {
   overflow-wrap: break-word;
+  
 }
 
 /* 9. Improve line wrapping */
 p {
   text-wrap: pretty;
+  letter-spacing: 0.05em;
 }
 h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
+  letter-spacing: -0.05em;
 }
+
+button, input{
+  cursor: pointer;
+}
+
+
 
 /*
   10. Create a root stacking context
