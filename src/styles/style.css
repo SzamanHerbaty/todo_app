@@ -240,3 +240,11 @@ input[type="checkbox"]{
     border: none;
 }
 
+#error_message{
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+    background-color: white;
+    border-radius: 15px;
+    transition: all 0.3s;
+}
