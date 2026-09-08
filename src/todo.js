@@ -16,6 +16,42 @@ class Todo {
         this.#status = false;
     }
 
+/* ----- GETTERS -----*/    
+    get id(){
+        return this.#id;
+    }
+
+    get title(){
+        return this.#title;
+    }
+
+    get date(){
+        return this.#date;
+    }
+
+    get info(){
+        return this.#info;
+    }
+
+    get status(){
+        return this.#status;
+    }
+
+/* ----- SETTERS -----*/   
+
+    set title(title){
+        this.#title = title;
+    }
+
+    set date(date){
+        this.#date = date;
+    }
+
+    set info(info){
+        this.#info = info;
+    }
+
+    
     toJSON(){
         return{
             id: this.#id,
@@ -29,12 +65,14 @@ class Todo {
     changeStatus(){
         if(this.#status === false){
             this.#status = true;
-        }
+        } 
         else{
             this.#status = false;
         }
     }
-
+    
+    
     
 }
 
+export default Todo;
