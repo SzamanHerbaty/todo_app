@@ -1,6 +1,6 @@
 import Todo from "./todo.js";
 import {validateAndConvertDate} from './utilities/dateConversion.js';
-
+import uiController from "./UI.js";
 
 class TodoManager{
     
@@ -24,25 +24,40 @@ class TodoManager{
         e.preventDefault();
         
         const rawData = uiController.getTodoFormData();
-        
         uiController.clearError();
 
         try {
 
-            console.log(rawData);
-
             const validDate = validateAndConvertDate(rawData.date);
-        
-            const newTodo = new Todo(rawData.title, rawData.date, rawData.info);
 
-            this.#todos.push(newTodo);
+            if (rawData.id){
 
-            this.saveToLocalStorage(newTodo);
+                const todoToEdit = this.#todos.find(todo => todo.id === rawData.id);
 
-            console.log(newTodo);
+                if (todoToEdit) {
+                    todoToEdit.title = rawData.title;
+                    todoToEdit.date = validDate;
+                    todoToEdit.info = rawData.info;
+                }
+                   
+                
+                uiController.updateTodoElement(todoToEdit);
 
-           uiController.createTodo(newTodo);
-        
+                this.saveToLocalStorage(todoToEdit);
+
+            }
+
+
+            else{
+                const newTodo = new Todo(rawData.title, validDate.toLocaleDateString("pl-PL"), rawData.info);
+
+                this.#todos.push(newTodo);
+
+                uiController.createTodo(newTodo);
+
+                this.saveToLocalStorage(newTodo);
+            }
+            
         } catch (error) {
             uiController.showError(error.message);
         }
