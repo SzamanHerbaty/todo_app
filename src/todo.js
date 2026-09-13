@@ -7,13 +7,38 @@ class Todo {
     #date;
     #info;
     #status;
+    #priority;
     
-    constructor(title, date, info){
+    
+    constructor(title, date, info, id = uuidv4(), status = false, priority){
         this.#title = title;
         this.#date = date;
         this.#info = info;
-        this.#id = uuidv4();
-        this.#status = false;
+        this.#id = id;
+        this.#status = status;
+        this.#priority = priority || this.autoSetPriority();
+    }
+
+    autoSetPriority(){
+        
+        const settedDate = new Date(this.#date);
+
+        const today = new Date();
+    
+        today.setHours(0, 0, 0, 0);
+
+        const daysBetweenDays = (settedDate - today) / (1000 * 60 * 60 * 24);
+
+        if (daysBetweenDays >= 14){
+            return "Low";
+        }
+        else if(daysBetweenDays >= 7){
+            return "Medium";
+        }
+        else{
+            return "High";
+        }
+
     }
 
 /* ----- GETTERS -----*/    
@@ -37,6 +62,10 @@ class Todo {
         return this.#status;
     }
 
+    get priority(){
+        return this.#priority;
+    }
+
 /* ----- SETTERS -----*/   
 
     set title(title){
@@ -51,6 +80,10 @@ class Todo {
         this.#info = info;
     }
 
+    set priority(priority){
+        this.#priority = priority;
+    }
+
     
     toJSON(){
         return{
@@ -58,7 +91,8 @@ class Todo {
             title: this.#title,
             date: this.#date,
             info: this.#info,
-            status: this.#status
+            status: this.#status,
+            priority: this.#priority
         }
     }
 

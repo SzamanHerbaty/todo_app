@@ -148,6 +148,15 @@ main{
     gap: 10px;
 }
 
+.add_todo_btn{
+    padding: 5px 25px;
+    font-size: 16px;
+    background-color: #386641;
+    border: none;
+    color: white;
+    border-radius: 15px;
+}
+
 /* ------ TODO STYLING ------ */
 
 .todo_container_item{
@@ -189,9 +198,21 @@ main{
 /* ------ PRIORITY ------ */
 
 .todo_priority{
-    background-color: rgb(7, 244, 7);
     padding: 5px 10px;
     border-radius: 15px;
+}
+
+.green_bg{
+    background-color: rgb(7, 244, 7);
+}
+
+.orange_bg{
+    background-color: orange;
+}
+
+.red_bg{
+    background-color: red;
+    color: white;
 }
 
 /* ------ TODO BUTTONS ------ */
@@ -249,4 +270,91 @@ input[type="checkbox"]{
     background-color: white;
     border-radius: 15px;
     transition: all 0.3s;
+}
+
+/* --------- TODO FORM ----------- */
+
+#todo_modal{
+    padding: 25px;
+    border: none;
+    height: 50%;
+    font-size: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    background-color: #f2e8cf;
+    align-items: flex-end;
+}
+
+#todo_modal[open]{
+    display: flex;
+    flex-direction: column;
+}
+
+.modal_heading{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.close_modal_button{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgb(214, 1, 1);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.close_modal_button:hover{
+    background-color: red;
+}
+
+
+
+#todo_modal > form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-grow: 1;
+}
+
+.form_grid{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 25px;
+}
+
+.form_grid:nth-child(2){
+    grid-column-start: 1;
+    grid-row-start: 2;
+}
+
+.form_grid:nth-child(3){
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+input:focus{
+    outline: 2px solid #ccc;
+}
+
+button[type="submit"]{
+    padding: 5px 25px;
+    background-color: #6a994e;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover{
+    background-color: #577d40;
 }
