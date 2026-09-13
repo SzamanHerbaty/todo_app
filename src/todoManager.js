@@ -128,6 +128,17 @@ class TodoManager{
         uiController.fillFormForEdit(todoToFillForm);
     }
 
+
+    triggerStatusChange(id) {
+        const todoToChangeStatus = this.#todos.find(todo => todo.id === id);
+
+        const index = this.#todos.indexOf(todoToChangeStatus);
+
+        this.#todos[index].changeStatus();
+
+        this.saveToLocalStorage(this.#todos[index]);
+
+    }
 }   
 
 export default TodoManager;

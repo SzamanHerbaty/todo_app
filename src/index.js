@@ -35,6 +35,15 @@ todoContainer.addEventListener("click", (e) => {
         todoManager.deleteTodo(todoItem.dataset.id);
 
     }
+
+    if (e.target.classList.contains("status_input")) {
+
+        const todoItem = e.target.closest(".todo_container_item");
+
+        console.log(todoItem);
+
+        todoManager.triggerStatusChange(todoItem.dataset.id)
+    }
 });
 
 closeBtn.addEventListener("click", () => {

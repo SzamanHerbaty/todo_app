@@ -25,7 +25,7 @@ main{
     display: flex;
     border-radius: 25px;
     width: 90%;
-    height: 90%;
+    min-height: 90%;
     background-color: var(--primary_bg_color);
     color: white;
 }
@@ -130,6 +130,7 @@ main{
     align-items: center;
     flex-direction: column;
     margin-top: 15px;
+    padding-bottom: 25px;
 }
 
 

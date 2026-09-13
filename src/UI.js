@@ -43,6 +43,7 @@ const uiController = (() => {
 
         const statusInput = document.createElement("input");
         statusInput.type = "checkbox";
+        statusInput.classList.add("status_input");
         statusInput.checked = todoObject.status;
 
         const title = document.createElement("p");
