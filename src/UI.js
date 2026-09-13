@@ -1,3 +1,5 @@
+const todoForm = document.querySelector("#date_form");
+
 const uiController = (() => {
 
 
@@ -70,12 +72,35 @@ const uiController = (() => {
 
     const getTodoFormData = () => {
         return{
+            id: todoForm.dataset.editId || null,
             title: titleInput.value,
             info: infoInput.value,
             date: dateInput.value
         };
     };
 
+    const fillFormForEdit = (todoObject) => {
+        titleInput.value = todoObject.title;
+        dateInput.value = todoObject.date; 
+        infoInput.value = todoObject.info;
+        todoForm.dataset.editId = todoObject.id;
+    }
+
+
+    const resetFormMode = () => {
+        todoForm.reset();
+        delete todoForm.dataset.editId;
+        // submitButton.textContent = "Send"; 
+    };
+
+    const updateTodoElement = (todoObject) => {
+        const todoItem = document.querySelector(`.todo_container_item[data-id="${todoObject.id}"]`);
+        if (todoItem) {
+            todoItem.querySelector(".todo_container_item_heading p").textContent = todoObject.title;
+            todoItem.querySelector(".date").textContent = todoObject.date;
+            todoItem.querySelector(".todo_container_item_description p").textContent = todoObject.info;
+        }
+    };
 
     const clearError = () => {
         const errorDisplay = document.querySelector("#error_message");
