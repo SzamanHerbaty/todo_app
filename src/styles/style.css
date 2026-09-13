@@ -2,6 +2,11 @@
 
 /* ------ BODY ORGANIZATION ------ */
 
+:root{
+    --primary_bg_color: #6a994e;
+    --todo_bg_color: #f2e8cf;
+}
+
 *{
    padding: 0;
 }
@@ -21,7 +26,7 @@ main{
     border-radius: 25px;
     width: 90%;
     height: 90%;
-    background-color: #6a994e;
+    background-color: var(--primary_bg_color);
     color: white;
 }
 
@@ -40,7 +45,7 @@ main{
 .smart_section{
     display: flex;
     flex-direction: column;
-    border-top: 2px solid #6a994e;
+    border-top: 2px solid var(--primary_bg_color);
     gap: 8px;
     padding-top: 5px;
 }
@@ -74,7 +79,7 @@ main{
     font: var(--fa-font-solid);
     content: '\f5fd';
     margin-right: 8px;
-    color: #f2e8cf;
+    color: var(--todo_bg_color);
 }
 
 #complited::before{
@@ -160,7 +165,7 @@ main{
 /* ------ TODO STYLING ------ */
 
 .todo_container_item{
-    background-color: #f2e8cf;
+    background-color: var(--todo_bg_color);
     display: flex;
     flex-direction: column;
     padding: 15px;
@@ -281,7 +286,7 @@ input[type="checkbox"]{
     font-size: 20px;
     border-radius: 15px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    background-color: #f2e8cf;
+    background-color: var(--todo_bg_color);
     align-items: flex-end;
 }
 
@@ -348,7 +353,7 @@ input:focus{
 
 button[type="submit"]{
     padding: 5px 25px;
-    background-color: #6a994e;
+    background-color: var(--primary_bg_color);
     color: white;
     border: none;
     border-radius: 15px;
