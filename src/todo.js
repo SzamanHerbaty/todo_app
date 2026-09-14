@@ -1,7 +1,13 @@
 import { v4 as uuidv4 } from 'uuid';
 
+/**
+ * Reprezentuje pojedyncze zadanie w aplikacji (Todo).
+ * @class
+ */
+
 class Todo {
 
+    
     #id;
     #title;
     #date;
@@ -9,7 +15,15 @@ class Todo {
     #status;
     #priority;
     
-    
+    /**
+     * 
+     * @param {string} title - Tytuł zadania
+     * @param {string} date - Data zakończenia zadania w formacie tesktowym (tworzyony za pomocą obiektu Date z JavaScript)
+     * @param {string} info - Opis zadania
+     * @param {string} [id] - Unikalne ID zadania (genrowane automatycznie za pomocą pakietu uuid w przypadku nie podania ID)
+     * @param {bool} [status] - Status zakończenia zadania
+     * @param {string} [priority] - Priorytet zadania [Low, Medium, High] (genrowany automatycznie za pomocą metody autoSetPriority() w przypadku braku podania)
+     */
     constructor(title, date, info, id = uuidv4(), status = false, priority){
         this.#title = title;
         this.#date = date;
@@ -18,6 +32,11 @@ class Todo {
         this.#status = status;
         this.#priority = priority || this.autoSetPriority();
     }
+
+    /**
+     * Automatycznie oblicza priorytet zadania na podstawie daty końcowej zadania
+     * @returns {string} Zwaraca poziom priorytetu: "Low", "Medium", "High"
+     */
 
     autoSetPriority(){
         
@@ -84,7 +103,10 @@ class Todo {
         this.#priority = priority;
     }
 
-    
+    /**
+     * Zwraca obiekt JSON do serializacji
+     * @returns {Object} Zwykły obiekt zawierający publicznie dostępne pola zadania
+     */
     toJSON(){
         return{
             id: this.#id,
@@ -95,6 +117,10 @@ class Todo {
             priority: this.#priority
         }
     }
+
+    /**
+     * Zmienia status zadania na przeciwny
+     */
 
     changeStatus(){
         if(this.#status === false){
