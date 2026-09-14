@@ -2,13 +2,26 @@ import Todo from "./todo.js";
 import {validateAndConvertDate} from './utilities/dateConversion.js';
 import uiController from "./UI.js";
 
+/**
+ * Główny kontroler zarządzający logiką biznesową i stanem tablicy zadań.
+ * @class
+ */
 class TodoManager{
     
     #todos;
 
+    /**
+     * Tworzy instancje klasy TodoManager która zawiera tablie z wszystkimi zadaniami
+     */
+
     constructor(){
         this.#todos = [];
     }
+    
+    /**
+     * Zapisuje zadanie do lokalnej pamięci
+     * @param {Object} todoObject - Zadanie do zapisania
+     */
 
     saveToLocalStorage(todoObject){
         
@@ -19,10 +32,17 @@ class TodoManager{
         console.log(localStorage);
 
     }
-
+    /**
+     * Usuwa zadanie z lokalnej pamięci
+     * @param {string} id - ID obiektu który ma zostać usunięty
+     */
     removeFromLocalStorage(id){
         localStorage.removeItem(id);
     }
+
+    /**
+     * Przywraca wszytkie zdania z lokalnej pamięci oraz wysyła żądnie do storzenia ich w UI
+     */
 
     restoreFromLocalStorage(){
         for (let i = 0; i < localStorage.length; i++) {
@@ -52,6 +72,11 @@ class TodoManager{
             }
         }
     }
+
+    /**
+     * Obsługuje wysłanie formularza, decydując o dodaniu nowego zadania lub edycji istniejącego.
+     * @param {Event} e - Obiekt zdarzenia (SubmitEvent) przekazany przez nasłuchiwacz.
+     */
 
     addTodo(e){
         e.preventDefault();
@@ -103,6 +128,10 @@ class TodoManager{
 
     }
 
+    /**
+     * Usuwa zadanie z pamięci RAM, Local Storage oraz z interfejsu.
+     * @param {string} id - Unikalny identyfikator zadania pobrany z atrybutu dataset.id elementu HTML.
+     */
 
     deleteTodo(id){
 
@@ -122,12 +151,21 @@ class TodoManager{
 
     }
 
+    /**
+     * Wypełnia formularz danymi zadania które chcemy zedytować
+     * @param {string} id - ID zadnia które chcemy zedytować
+     */
+
     triggerEdit(id) {
         const todoToFillForm = this.#todos.find(todo => todo.id === id);
 
         uiController.fillFormForEdit(todoToFillForm);
     }
 
+    /**
+     * Zamienia status zadania na przeciwny 
+     * @param {string} id - ID zadania które ma zmienić status
+     */
 
     triggerStatusChange(id) {
         const todoToChangeStatus = this.#todos.find(todo => todo.id === id);
