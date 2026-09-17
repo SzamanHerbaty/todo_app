@@ -16,7 +16,8 @@ const uiController = (() => {
 
     /**
      * Przypisuje klasę odpowiadająca za kolor tła w zależności od priorytetu 
-     */
+     @memberof uiController
+    */
 
     const priorityCheck = (priority) =>{
         switch (priority){
@@ -31,7 +32,8 @@ const uiController = (() => {
 
     /**
      * Otwiera formularz
-     */
+     @memberof uiController
+    */
 
     const openModal = () => {
         formModal.showModal();
@@ -39,7 +41,8 @@ const uiController = (() => {
 
     /**
      * Zamyka Formularz
-     */
+     @memberof uiController
+    */
 
     const closeModal = () => {
         formModal.close();
@@ -47,7 +50,8 @@ const uiController = (() => {
 
     /**
      * Tworzy strukture HTML dla nowego zadania i dodaje ją do głównego kontenera.
-     * @param {Object} todoObject - Pełna instancja obiektu reprezentującego zadanie.
+     @memberof uiController
+    * @param {Object} todoObject - Pełna instancja obiektu reprezentującego zadanie.
      */
 
     const createTodo = (todoObject) => {
@@ -117,7 +121,8 @@ const uiController = (() => {
 
     /**
      * Wysyłą obiekt z danymi podane w formularzu (tytuł, opis, date).
-     * @returns {Object} Obiekt zawierający klucze: id, title, info oraz date.
+     @memberof uiController
+    * @returns {Object} Obiekt zawierający klucze: id, title, info oraz date.
      */
 
     const getTodoFormData = () => {
@@ -131,7 +136,8 @@ const uiController = (() => {
 
     /**
      * Wypełnia formularz danymi zadania które chcemy zedytować.
-     * @param {Object} todoObject - Obiekt który chcemy zedytować.
+     @memberof uiController
+    * @param {Object} todoObject - Obiekt który chcemy zedytować.
      */
 
     const fillFormForEdit = (todoObject) => {
@@ -146,7 +152,8 @@ const uiController = (() => {
 
     /**
      * Resetuje formularz i usuwa mu editId aby wysłanie formularza nie było potraktowane jako edycja 
-     */
+     @memberof uiController
+    */
 
     const resetFormMode = () => {
         todoForm.reset();
@@ -156,7 +163,8 @@ const uiController = (() => {
     
     /**
      * Aktualizuje inforamacje o zadaniu danymi podanymi w formularzu
-     * @param {Object} todoObject - zadanie które zostało zaktualizowane
+     @memberof uiController
+    * @param {Object} todoObject - zadanie które zostało zaktualizowane
      */
 
     const updateTodoElement = (todoObject) => {
@@ -173,7 +181,8 @@ const uiController = (() => {
 
     /**
      * Ususwa zadania z UI
-     * @param {Object} todoObject - zadanie do usunięcia
+     @memberof uiController
+    * @param {Object} todoObject - zadanie do usunięcia
      */
 
     const deleteTodoElement = (todoObject) => { 
@@ -185,7 +194,8 @@ const uiController = (() => {
 
     /**
      * Usuwa inforamcje o błędach
-     */
+     @memberof uiController
+    */
 
     const clearError = () => {
         const errorDisplay = document.querySelector("#error_message");
@@ -195,7 +205,8 @@ const uiController = (() => {
 
     /**
      * Pokazuje błąd
-     */
+     @memberof uiController
+    */
 
     const showError = (message) => {
         const errorDisplay = document.querySelector("#error_message");
