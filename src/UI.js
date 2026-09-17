@@ -155,8 +155,8 @@ const uiController = (() => {
     };
     
     /**
-     * 
-     * @param {Object} todoObject 
+     * Aktualizuje inforamacje o zadaniu danymi podanymi w formularzu
+     * @param {Object} todoObject - zadanie które zostało zaktualizowane
      */
 
     const updateTodoElement = (todoObject) => {
@@ -171,6 +171,11 @@ const uiController = (() => {
 
     };
 
+    /**
+     * Ususwa zadania z UI
+     * @param {Object} todoObject - zadanie do usunięcia
+     */
+
     const deleteTodoElement = (todoObject) => { 
         const todoItem = document.querySelector(`.todo_container_item[data-id="${todoObject.id}"]`);
 
@@ -178,11 +183,19 @@ const uiController = (() => {
 
     }
 
+    /**
+     * Usuwa inforamcje o błędach
+     */
+
     const clearError = () => {
         const errorDisplay = document.querySelector("#error_message");
         errorDisplay.style.padding = "0";
         errorDisplay.textContent = "";
     };
+
+    /**
+     * Pokazuje błąd
+     */
 
     const showError = (message) => {
         const errorDisplay = document.querySelector("#error_message");
