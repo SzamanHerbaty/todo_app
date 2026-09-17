@@ -1,5 +1,10 @@
 const todoForm = document.querySelector("#date_form");
 
+/**
+ * Moduł odpowiedzialny wyłącznie za manipulację drzewem DOM i renderowanie widoku.
+ * @namespace uiController
+ */
+
 const uiController = (() => {
 
     const formModal = document.querySelector("#todo_modal");
@@ -9,6 +14,9 @@ const uiController = (() => {
 
     const todoContainer = document.querySelector(".todo_container")
 
+    /**
+     * Przypisuje klasę odpowiadająca za kolor tła w zależności od priorytetu 
+     */
 
     const priorityCheck = (priority) =>{
         switch (priority){
@@ -21,14 +29,26 @@ const uiController = (() => {
         }
     }
 
+    /**
+     * Otwiera formularz
+     */
+
     const openModal = () => {
         formModal.showModal();
     };
+
+    /**
+     * Zamyka Formularz
+     */
 
     const closeModal = () => {
         formModal.close();
     };
 
+    /**
+     * Tworzy strukture HTML dla nowego zadania i dodaje ją do głównego kontenera.
+     * @param {Object} todoObject - Pełna instancja obiektu reprezentującego zadanie.
+     */
 
     const createTodo = (todoObject) => {
         const todoItem = document.createElement("div");
@@ -95,6 +115,10 @@ const uiController = (() => {
 
     }
 
+    /**
+     * Wysyłą obiekt z danymi podane w formularzu (tytuł, opis, date).
+     * @returns {Object} Obiekt zawierający klucze: id, title, info oraz date.
+     */
 
     const getTodoFormData = () => {
         return{
@@ -104,6 +128,11 @@ const uiController = (() => {
             date: dateInput.value
         };
     };
+
+    /**
+     * Wypełnia formularz danymi zadania które chcemy zedytować.
+     * @param {Object} todoObject - Obiekt który chcemy zedytować.
+     */
 
     const fillFormForEdit = (todoObject) => {
 
@@ -115,12 +144,20 @@ const uiController = (() => {
         todoForm.dataset.editId = todoObject.id;
     }
 
+    /**
+     * Resetuje formularz i usuwa mu editId aby wysłanie formularza nie było potraktowane jako edycja 
+     */
 
     const resetFormMode = () => {
         todoForm.reset();
         delete todoForm.dataset.editId;
         // submitButton.textContent = "Send"; 
     };
+    
+    /**
+     * 
+     * @param {Object} todoObject 
+     */
 
     const updateTodoElement = (todoObject) => {
         const todoItem = document.querySelector(`.todo_container_item[data-id="${todoObject.id}"]`);
